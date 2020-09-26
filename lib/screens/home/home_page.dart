@@ -3,11 +3,14 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_advanced_provider/common_wigets/avatar.dart';
 import 'package:flutter_advanced_provider/screens/home/about_page.dart';
+import 'package:flutter_advanced_provider/services/firebase_auth_services.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatelessWidget {
   Future<void> _signOut(BuildContext context) async {
     try {
-      // TODO: Implement
+      final auth = Provider.of<FirebaseAuthService>(context, listen:false);
+      await auth.signOut();
     } catch (e) {
       print(e);
     }
